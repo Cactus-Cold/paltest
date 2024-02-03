@@ -23,7 +23,6 @@ call git branch %gitName%%YYYYMMDD%
 call git checkout %gitName%%YYYYMMDD%
 call git push --set-upstream origin %gitName%%YYYYMMDD%
 
-pause
 start steam://rungameid/1623730
 pause
 
