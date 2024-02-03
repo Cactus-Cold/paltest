@@ -18,6 +18,7 @@ call git pull origin main
 call git checkout .
 call git clean -fd
 )
+call git lfs lock *.sav
 
 call git branch %gitName%%YYYYMMDD%
 call git checkout %gitName%%YYYYMMDD%
@@ -33,3 +34,4 @@ call git checkout main
 call git pull origin main
 call git merge -Xtheirs %gitName%%YYYYMMDD% && call git branch -d %gitName%%YYYYMMDD% && call git push origin --delete %gitName%%YYYYMMDD%
 call git push
+call git lfs unlock *.sav
