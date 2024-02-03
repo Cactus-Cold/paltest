@@ -15,6 +15,7 @@ call git push
 )
 
 call git checkout main
+call git checkout .
 call git clean -fd
 call git pull
 
