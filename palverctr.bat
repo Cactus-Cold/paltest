@@ -8,7 +8,7 @@ SET gitName=%%F
 )
 set YYYYMMDD=%DATE:~10,4%%DATE:~4,2%%DATE:~7,2%
 
-if %currentbranch%=="main" (
+if not %currentbranch%=="main" (
 call git add .
 call git commit -m "Saved game"
 call git push
