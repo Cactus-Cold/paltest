@@ -12,12 +12,13 @@ if not %currentbranch%==main (
 call git add .
 call git commit -m "Saved game"
 call git push
-)
-
 call git checkout main
+call git pull
+) else (
 call git checkout .
 call git clean -fd
-call git pull
+)
+
 
 call git branch %gitName%%YYYYMMDD%
 call git checkout %gitName%%YYYYMMDD%
