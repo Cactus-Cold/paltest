@@ -31,5 +31,5 @@ call git commit -m "Saved game"
 call git push
 call git checkout main
 call git pull origin main
-call git merge -Xtheirs %gitName%%YYYYMMDD% && call git branch -d %gitName%%YYYYMMDD%
+call git merge -Xtheirs %gitName%%YYYYMMDD% && call git branch -d %gitName%%YYYYMMDD% && call git push origin --delete %gitName%%YYYYMMDD%
 call git push
