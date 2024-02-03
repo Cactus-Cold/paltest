@@ -13,7 +13,7 @@ call git add .
 call git commit -m "Saved game"
 call git push
 call git checkout main
-call git pull
+call git pull origin main
 ) else (
 call git checkout .
 call git clean -fd
@@ -25,3 +25,11 @@ call git push --set-upstream origin %gitName%%YYYYMMDD%
 
 pause
 start steam://rungameid/1623730
+pause
+
+call git add .
+call git commit -m "Saved game"
+call git push
+call git checkout main
+call git pull origin main
+call git merge -Xtheirs %gitName%%YYYYMMDD%
