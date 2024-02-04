@@ -24,6 +24,12 @@ call git branch %gitName%%YYYYMMDD%
 call git checkout %gitName%%YYYYMMDD%
 call git push --set-upstream origin %gitName%%YYYYMMDD%
 
+for /f %%i in (host.txt) do (
+ set palid=%%i
+)
+
+copy Players\%palid%.sav Players\00000000000000000000000000000001.sav
+
 start steam://rungameid/1623730
 pause
 
