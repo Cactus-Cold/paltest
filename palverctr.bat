@@ -6,27 +6,28 @@ SET currentbranch=%%F
 FOR /F "tokens=* USEBACKQ" %%F IN (`git config user.name`) DO (
 SET gitName=%%F
 )
+
+for /f %%i in (host.txt) do (
+ set palid=%%i
+)
+
 set YYYYMMDD=%DATE:~10,4%%DATE:~4,2%%DATE:~7,2%
 
-if not %currentbranch%==main (
+if %currentbranch%==main (
+call git checkout .
+call git clean -fd
+call git branch %gitName%%YYYYMMDD%
+call git checkout %gitName%%YYYYMMDD%
+call git push --set-upstream origin %gitName%%YYYYMMDD%
+) else (
+copy Players\00000000000000000000000000000001.sav Players\%palid%.sav
 call git add .
 call git commit -m "Saved game"
 call git push
 call git checkout main
 call git pull origin main
-) else (
-call git checkout .
-call git clean -fd
 )
 call git lfs lock *.sav
-
-call git branch %gitName%%YYYYMMDD%
-call git checkout %gitName%%YYYYMMDD%
-call git push --set-upstream origin %gitName%%YYYYMMDD%
-
-for /f %%i in (host.txt) do (
- set palid=%%i
-)
 
 copy Players\%palid%.sav Players\00000000000000000000000000000001.sav
 
