@@ -24,8 +24,6 @@ copy Players\00000000000000000000000000000001.sav Players\%palid%.sav
 call git add .
 call git commit -m "Saved game"
 call git push
-call git checkout main
-call git pull origin main
 )
 call git lfs lock *.sav
 
@@ -35,10 +33,10 @@ start steam://rungameid/1623730
 pause
 
 copy Players\00000000000000000000000000000001.sav Players\%palid%.sav
-
 call git add .
 call git commit -m "Saved game"
 call git push
+
 call git checkout main
 call git pull origin main
 call git merge -Xtheirs %gitName%%YYYYMMDD% && call git branch -d %gitName%%YYYYMMDD%
