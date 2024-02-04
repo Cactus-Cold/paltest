@@ -33,6 +33,8 @@ copy Players\%palid%.sav Players\00000000000000000000000000000001.sav
 start steam://rungameid/1623730
 pause
 
+copy Players\00000000000000000000000000000001.sav Players\%palid%.sav
+
 call git add .
 call git commit -m "Saved game"
 call git push
